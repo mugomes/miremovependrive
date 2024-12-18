@@ -2,7 +2,7 @@
 Title=MIRemovePendrive
 Startup=FMain
 Icon=miremovependrive.png
-Version=0.0.4
+Version=0.0.6
 Component=gb.image
 Component=gb.gtk3
 Component=gb.form
