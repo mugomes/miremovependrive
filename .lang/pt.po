@@ -1,0 +1,122 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: miremovependrive 3.18.0\n"
+"POT-Creation-Date: 2024-09-02 16:25 UTC\n"
+"PO-Revision-Date: 2024-08-26 18:23 UTC\n"
+"Last-Translator: Murilo Gomes Julio <contatomestredainfo@gmail.com>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .project:1 FMain.form:19
+msgid "MIRemovePendrive"
+msgstr "MIRemovePendrive"
+
+#: .project:2
+msgid "Remove pendrive safely."
+msgstr "Remova o pendrive com segurança."
+
+#: FAbout.form:17 FMain.form:34
+msgid "About MIRemovePendrive"
+msgstr "Sobre MIRemovePendrive"
+
+#: FMain.class:72
+msgid "Continue"
+msgstr "Continuar"
+
+#: FMain.class:72
+msgid "Select a device to safely remove it!"
+msgstr "Selecione um dispositivo para removê-lo com segurança!"
+
+#: FMain.class:77
+msgid "Getting device &1..."
+msgstr "Obtendo dispositivo &1..."
+
+#: FMain.class:87
+msgid "Unmounting device &1..."
+msgstr "Desmontando dispositivo &1..."
+
+#: FMain.class:92
+msgid "Turning off device &1..."
+msgstr "Desligand dispositivo &1..."
+
+#: FMain.class:99
+msgid "Device removed successfully!"
+msgstr "Dispositivo removido com sucesso!"
+
+#: FMain.class:101
+msgid "Device working, could not be removed!"
+msgstr "Dispositivo funcionando, não foi possível removê-lo!"
+
+#: FMain.class:104
+msgid "Device working, unable to disassemble!"
+msgstr "Dispositivo funcionando, não é possível desmontar!"
+
+#: FMain.class:160
+msgid "Available"
+msgstr "Disponível"
+
+#: FMain.class:163
+msgid "Used"
+msgstr "Usado"
+
+#: FMain.class:166
+msgid "Total"
+msgstr "Total"
+
+#: FMain.class:169
+msgid "Used %"
+msgstr "Usado %"
+
+#: FMain.form:24
+msgid "About"
+msgstr "Sobre"
+
+#: FMain.form:27
+msgid "Support MIRemovePendrive"
+msgstr "Apoie MIRemovePendrive"
+
+#: FMain.form:48
+msgid "Select the device you want to remove:"
+msgstr "Selecione o dispositivo que deseja remover:"
+
+#: FMain.form:59
+msgid "Remove"
+msgstr "Remover"
+
+#: FMain.form:65
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: FMain.form:75
+msgid "Information"
+msgstr "Informação"
+
+#~ msgid "Copyright (C) 2004-2024 Murilo Gomes Julio"
+#~ msgstr "Copyright (C) 2004-2024 Murilo Gomes Julio"
+
+#~ msgid "Developed by: Murilo Gomes Julio"
+#~ msgstr "Desenvolvido por: Murilo Gomes Julio"
+
+#~ msgid "License: GPL-2.0-only"
+#~ msgstr "Licença: GPL-2.0-only"
+
+#~ msgid ""
+#~ "MIRemovePendrive is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, only version 2 of the License.\n"
+#~ "\n"
+#~ "MIRemovePendrive is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details."
+#~ msgstr ""
+#~ "MIRemovePendrive is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, only version 2 of the License.\n"
+#~ "\n"
+#~ "MIRemovePendrive is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details."
+
+#~ msgid "Mestre da Info"
+#~ msgstr "Mestre da Info"
+
+#~ msgid "Site:"
+#~ msgstr "Site:"
+
+#~ msgid "www.mestredainfo.com.br"
+#~ msgstr "www.mestredainfo.com.br"
