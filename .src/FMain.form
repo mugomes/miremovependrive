@@ -8,6 +8,11 @@
   Resizable = False
   { Menu1 Menu
     Text = ("About")
+    { mnuCheckUpdate Menu
+      Text = ("Check Update")
+    }
+    { Menu3 Menu
+    }
     { mnuApoie Menu
       Text = ("Support MIRemovePendrive")
     }

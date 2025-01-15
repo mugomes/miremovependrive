@@ -2,15 +2,15 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: miremovependrive 3.18.0\n"
-"POT-Creation-Date: 2024-09-02 16:26 UTC\n"
-"PO-Revision-Date: 2024-09-02 16:25 UTC\n"
-"Last-Translator: Murilo Gomes Julio <contatomestredainfo@gmail.com>\n"
+"POT-Creation-Date: 2025-01-02 15:34 UTC\n"
+"PO-Revision-Date: 2025-01-01 18:07 UTC\n"
+"Last-Translator: Mestre da Info <contatomestredainfo@gmail.com>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: .project:1 FMain.form:19
+#: .project:1 FMain.form:21
 msgid "MIRemovePendrive"
 msgstr "MIRemovePendrive"
 
@@ -18,7 +18,11 @@ msgstr "MIRemovePendrive"
 msgid "Remove pendrive safely."
 msgstr "Remova o pendrive com segurança."
 
-#: FAbout.form:17 FMain.form:34
+#: FAbout.class:19
+msgid "Version:"
+msgstr "Versão:"
+
+#: FAbout.form:18 FMain.form:43
 msgid "About MIRemovePendrive"
 msgstr "Sobre MIRemovePendrive"
 
@@ -54,42 +58,46 @@ msgstr "Dispositivo funcionando, não foi possível removê-lo!"
 msgid "Device working, unable to disassemble!"
 msgstr "Dispositivo funcionando, não é possível desmontar!"
 
-#: FMain.class:160
+#: FMain.class:157
 msgid "Available"
 msgstr "Disponível"
 
-#: FMain.class:163
+#: FMain.class:160
 msgid "Used"
 msgstr "Usado"
 
-#: FMain.class:166
+#: FMain.class:163
 msgid "Total"
 msgstr "Total"
 
-#: FMain.class:169
+#: FMain.class:166
 msgid "Used %"
 msgstr "Usado %"
 
-#: FMain.form:24
+#: FMain.form:26
 msgid "About"
 msgstr "Sobre"
 
-#: FMain.form:27
+#: FMain.form:29
+msgid "Check Update"
+msgstr "Verificar Atualização"
+
+#: FMain.form:36
 msgid "Support MIRemovePendrive"
 msgstr "Apoie MIRemovePendrive"
 
-#: FMain.form:48
+#: FMain.form:57
 msgid "Select the device you want to remove:"
 msgstr "Selecione o dispositivo que deseja remover:"
 
-#: FMain.form:59
+#: FMain.form:68
 msgid "Remove"
 msgstr "Remover"
 
-#: FMain.form:65
+#: FMain.form:74
 msgid "Refresh"
 msgstr "Atualizar"
 
-#: FMain.form:75
+#: FMain.form:84
 msgid "Information"
 msgstr "Informação"

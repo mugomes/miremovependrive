@@ -4,7 +4,7 @@ Remove pendrive safely.
 
 ## Information
 
-- [Page MIRemovePendrive](https://www.mestredainfo.com.br/p/miremovependrive.html)
+- [Page MIRemovePendrive](https://www.mestredainfo.com.br/2025/01/miremovependrive.html)
 
 ## License
 
