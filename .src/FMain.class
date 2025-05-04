@@ -1,6 +1,6 @@
 ' Gambas class file
 
-' Copyright (C) 2004-2025 Murilo Gomes Julio
+' Copyright (C) 2024-2025 Murilo Gomes Julio
 ' SPDX-License-Identifier: GPL-2.0-only
 
 ' Mestre da Info
@@ -197,6 +197,6 @@ End
 
 Public Sub mnuCheckUpdate_Click()
 
-  Shell "xdg-open \"https://www.mestredainfo.com.br/2025/01/miremovependrive.html\""
+  Shell "xdg-open \"https://www.mestredainfo.com.br/p/miremovependrive.html\""
 
 End
