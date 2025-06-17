@@ -117,8 +117,6 @@ function miNewWindow(url, width, height, resizable, frame, hide) {
         createMenu(sNewWindow, url.replace('.html', ''));
     }
 
-    createMenuContext(sNewWindow);
-
     sNewWindow.webContents.setWindowOpenHandler(({ url }) => {
         if (url !== '') {
             miNewWindow(`${url}`);
@@ -173,39 +171,6 @@ function getMenuTemplate(win, menuData) {
     });
 
     return template;
-}
-
-function createMenuContext(win) {
-    const contextMenu = new Menu();
-    contextMenu.append(new MenuItem({
-        label: milang.traduzir('Cut'),
-        role: 'cut'
-    }));
-    contextMenu.append(new MenuItem({
-        label: milang.traduzir('Copy'),
-        role: 'copy'
-    }));
-    contextMenu.append(new MenuItem({
-        label: milang.traduzir('Paste'),
-        role: 'paste'
-    }));
-    contextMenu.append(new MenuItem({
-        type: "separator"
-    }));
-    contextMenu.append(new MenuItem({
-        label: milang.traduzir('Select All'),
-        role: 'selectall'
-    }));
-
-    win.webContents.on('context-menu', (event, params) => {
-        if (params.formControlType == 'input-text' || params.formControlType == 'text-area') {
-            contextMenu.popup({
-                window: win,
-                x: params.x,
-                y: params.y
-            });
-        }
-    });
 }
 
 app.whenReady().then(() => {

@@ -4,9 +4,5 @@
     "Error reading JSON file": "Erro ao ler arquivo JSON",
     "Dev": "Dev",
     "Refresh": "Atualizar",
-    "Tools": "Ferramentas",
-    "Cut": "Recortar",
-    "Copy": "Copiar",
-    "Paste": "Colar",
-    "Select All": "Selecionar tudo"
+    "Tools": "Ferramentas"
 }
