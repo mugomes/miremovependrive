@@ -1,0 +1,83 @@
+<!--
+Copyright (C) 2024-2025 Murilo Gomes Julio
+SPDX-License-Identifier: GPL-2.0-only
+
+Mestre da Info
+Site: https://www.mestredainfo.com.br
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About MIRemovePendrive</title>
+
+    <style>
+        .btnCollapse {
+            background-color: #79b7c8;
+            color: #003470;
+            cursor: pointer;
+            padding: 18px;
+            width: 97%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            font-weight: bold;
+            margin-top: 7px
+        }
+
+        .content {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 7px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>MIRemovePendrive</h1>
+    <p>Remove pendrive safely.</p>
+    <p>
+        <strong>Version:</strong>&nbsp;
+        <span id="versionApp"></span>
+    </p>
+    <p><strong>Developed by:</strong>&nbsp;Murilo Gomes Julio</p>
+    <p>Mestre da Info</p>
+    <p>
+        <strong>Site:</strong>&nbsp;
+        <a href="javascript:miremovependrive.openURL('https://www.mestredainfo.com.br');">
+            www.mestredainfo.com.br</a>
+    </p>
+
+    <p>Copyright &copy; 2024-2025 Murilo Gomes Julio</p>
+
+    <p><strong>License:</strong> GPL-2.0-only</p>
+
+    <textarea style="width: 100%;height: 200px;" readonly>
+MIRemovePendrive is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, only version 2 of the License.
+
+MIRemovePendrive is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+    </textarea>
+
+    <hr class="border border-primary border-3 opacity-75">
+
+    <h3>Third Party Resources Used</h3>
+
+    <button class="btnCollapse" type="button">
+        Electron
+    </button>
+    <div class="content">
+        License:&nbsp;MIT<br>
+        Site:&nbsp;<a href="javascript:miremovependrive.openURL('https://www.electronjs.org/pt/');">www.electronjs.org/pt/</a>
+        <hr>
+        <textarea id="txtElectron" rows="7" cols="5" style="width:100%;height: 400px;" readonly></textarea>
+    </div>
+
+    <script src="js/sobre.js"></script>
+</body>
+
+</html>
