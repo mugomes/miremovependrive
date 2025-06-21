@@ -11,8 +11,8 @@ const sResult = document.getElementById('resultado');
 async function getDriver() {
     txtDriver.innerHTML = '';
     miremovependrive.getUSB();
-    miremovependrive.listUSB((jsonData) => {
-        var sDriver = jsonData.split("\n")
+    miremovependrive.listUSB((sValues) => {
+        var sDriver = sValues.split("\n")
         sDriver.forEach((row) => {
             if (row != '') {
                 var opt = document.createElement('option');
@@ -33,9 +33,9 @@ async function removeUSB() {
 
     await miremovependrive.removeUSB(txtDriver.value);
 
-    miremovependrive.listRemoveUSB((jsonData) => {
-        if (jsonData != '') {
-            sResult.innerHTML = '' + jsonData + '</div>';
+    miremovependrive.listRemoveUSB((sValue) => {
+        if (sValue != '') {
+            sResult.innerHTML = sValue;
         }
     });
 
