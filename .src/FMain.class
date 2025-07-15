@@ -178,7 +178,7 @@ End
 
 Public Sub mnuApoie_Click()
   
-  Shell "xdg-open \"https://www.mestredainfo.com.br/p/assinantes.html\""
+  Shell "xdg-open \"https://www.mugomes.com.br/p/assinantes.html\""
   
 End 
 
@@ -196,6 +196,6 @@ End
 
 Public Sub mnuCheckUpdate_Click()
 
-  Shell "xdg-open \"https://www.mestredainfo.com.br/2025/07/miremovependrive.html\""
+  Shell "xdg-open \"https://www.mugomes.com.br/2025/07/miremovependrive.html\""
 
 End
