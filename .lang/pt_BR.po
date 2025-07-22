@@ -2,6 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: miremovependrive 3.19.0\n"
+"POT-Creation-Date: 2025-07-15 20:23 UTC\n"
 "PO-Revision-Date: 2025-07-15 19:46 UTC\n"
 "Last-Translator: Murilo Gomes <mugomesoficial@gmail.com>\n"
 "Language: pt_BR\n"
@@ -9,25 +10,45 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: FMain.form:26
-msgid "About"
-msgstr "Sobre"
+# gb-ignore
+#: .project:1 FMain.form:21
+msgid "MiRemovePendrive"
+msgstr ""
+
+# gb-ignore
+#: .project:2
+msgid ""
+"Remove pendrive safely.\n"
+"The MiRemovePendrive is under license GPL-2.0-only"
+msgstr ""
+
+#: FAbout.class:16
+msgid "Version:"
+msgstr "Versão:"
 
 #: FAbout.form:17 FMain.form:43
 msgid "About MiRemovePendrive"
 msgstr "Sobre MiRemovePendrive"
 
-#: FMain.class:156
-msgid "Available"
-msgstr "Disponível"
-
-#: FMain.form:29
-msgid "Check Update"
-msgstr "Verificar Atualização"
-
 #: FMain.class:71
 msgid "Continue"
 msgstr "Continuar"
+
+#: FMain.class:71
+msgid "Select a device to safely remove it!"
+msgstr "Selecione um dispositivo para removê-lo com segurança!"
+
+#: FMain.class:76
+msgid "Getting device &1..."
+msgstr "Obtendo dispositivo &1..."
+
+#: FMain.class:86
+msgid "Unmounting device &1..."
+msgstr "Desmontando dispositivo &1..."
+
+#: FMain.class:91
+msgid "Turning off device &1..."
+msgstr "Desligando dispositivo &1..."
 
 #: FMain.class:98
 msgid "Device removed successfully!"
@@ -41,65 +62,46 @@ msgstr "Dispositivo funcionando, não foi possível removê-lo!"
 msgid "Device working, unable to disassemble!"
 msgstr "Dispositivo funcionando, não é possível desmontar!"
 
-#: FMain.class:76
-msgid "Getting device &1..."
-msgstr "Obtendo dispositivo &1..."
-
-#: FMain.form:84
-msgid "Information"
-msgstr "Informação"
-
-# gb-ignore
-#: .project:1 FMain.form:21
-msgid "MiRemovePendrive"
-msgstr ""
-
-#: FMain.form:74
-msgid "Refresh"
-msgstr "Atualizar"
-
-#: FMain.form:68
-msgid "Remove"
-msgstr "Remover"
-
-# gb-ignore
-#: .project:2
-msgid "Remove pendrive safely.\nThe MiRemovePendrive is under license GPL-2.0-only"
-msgstr ""
-
-#: FMain.class:71
-msgid "Select a device to safely remove it!"
-msgstr "Selecione um dispositivo para removê-lo com segurança!"
-
-#: FMain.form:57
-msgid "Select the device you want to remove:"
-msgstr "Selecione o dispositivo que deseja remover:"
-
-#: FMain.form:36
-msgid "Subscribers"
-msgstr "Assinantes"
-
-#: FMain.class:162
-msgid "Total"
-msgstr "Total"
-
-#: FMain.class:91
-msgid "Turning off device &1..."
-msgstr "Desligando dispositivo &1..."
-
-#: FMain.class:86
-msgid "Unmounting device &1..."
-msgstr "Desmontando dispositivo &1..."
+#: FMain.class:156
+msgid "Available"
+msgstr "Disponível"
 
 #: FMain.class:159
 msgid "Used"
 msgstr "Usado"
 
+#: FMain.class:162
+msgid "Total"
+msgstr "Total"
+
 #: FMain.class:165
 msgid "Used %"
 msgstr "Usado %"
 
-#: FAbout.class:16
-msgid "Version:"
-msgstr "Versão:"
+#: FMain.form:26
+msgid "About"
+msgstr "Sobre"
 
+#: FMain.form:29
+msgid "Check Update"
+msgstr "Verificar Atualização"
+
+#: FMain.form:36
+msgid "Subscribers"
+msgstr "Assinantes"
+
+#: FMain.form:57
+msgid "Select the device you want to remove:"
+msgstr "Selecione o dispositivo que deseja remover:"
+
+#: FMain.form:68
+msgid "Remove"
+msgstr "Remover"
+
+#: FMain.form:74
+msgid "Refresh"
+msgstr "Atualizar"
+
+#: FMain.form:84
+msgid "Information"
+msgstr "Informação"

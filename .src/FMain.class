@@ -100,9 +100,9 @@ Private Sub RemoveDriver()
         Message.Error(("Device working, could not be removed!"))
       Endif
     Else 
+      lblInfo.Text = ""
       Message.Error(("Device working, unable to disassemble!"))
     Endif
-    
   Endif 
   
   getDrivers()
