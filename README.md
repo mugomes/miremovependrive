@@ -4,13 +4,25 @@ Remove pendrive safely.
 
 ## Information
 
-- [Page MiRemovePendrive](https://www.mugomes.com.br/2025/07/miremovependrive.html)
+ - [Page MiRemovePendrive](https://github.com/mugomes/miremovependrive)
+
+## System Requirement
+
+### Linux
+
+ - Ubuntu 24.04 or higher
+ - Graphics: GPU with OpenGL support (required for 3D acceleration)
+
+### Windows
+
+- Windows 10 or higher
+- Graphics: GPU with OpenGL support (required for 3D acceleration)
 
 ## License
 
 The MiRemovePendrive is provided under:
 
-[SPDX-License-Identifier: GPL-2.0-only](https://spdx.org/licenses/GPL-2.0-only.html)
+[SPDX-License-Identifier: GPL-2.0-only](https://github.com/mugomes/miremovependrive/blob/main/LICENSE)
 
 Beign under the terms of the GNU General Public License version 2 only.
 
