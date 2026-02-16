@@ -1,13 +1,13 @@
-// Copyright (C) 2025 Murilo Gomes Julio
+// Copyright (C) 2024-2026 Murilo Gomes Julio
 // SPDX-License-Identifier: GPL-2.0-only
 
-// Site: https://www.mugomes.com.br
+// Site: https://mugomes.github.io
 
 package main
 
 import (
 	"fmt"
-	"image/color"
+	"net/url"
 	"os/exec"
 	"os/user"
 	"strconv"
@@ -16,47 +16,13 @@ import (
 
 	"fyne.io/fyne/v2"
 	"fyne.io/fyne/v2/app"
-	"fyne.io/fyne/v2/theme"
 	"fyne.io/fyne/v2/widget"
 	"github.com/mugomes/mgcolumnview"
+	"github.com/mugomes/mgdialogbox"
 	"github.com/mugomes/mgsmartflow"
 )
 
-const VERSION_APP string = "3.0.0"
-
-type myDarkTheme struct{}
-
-func (m myDarkTheme) Color(name fyne.ThemeColorName, variant fyne.ThemeVariant) color.Color {
-	// A lógica para forçar o modo escuro é retornar cores escuras.
-	// O Fyne usa estas constantes internamente:
-	switch name {
-	case theme.ColorNameBackground:
-		return color.RGBA{28, 28, 28, 255} // Fundo preto
-	case theme.ColorNameForeground:
-		return color.White // Texto branco
-	// Adicione outros casos conforme a necessidade (InputBackground, Primary, etc.)
-	default:
-		// Retorna o tema escuro padrão para as outras cores (se existirem)
-		// Aqui estamos apenas definindo as cores principais para garantir o Dark Mode
-		return theme.DefaultTheme().Color(name, theme.VariantDark)
-	}
-}
-
-// 3. Implemente os outros métodos necessários da interface fyne.Theme (usando o tema padrão)
-func (m myDarkTheme) Font(s fyne.TextStyle) fyne.Resource {
-	return theme.DefaultTheme().Font(s)
-}
-
-func (m myDarkTheme) Icon(n fyne.ThemeIconName) fyne.Resource {
-	return theme.DefaultTheme().Icon(n)
-}
-
-func (m myDarkTheme) Size(n fyne.ThemeSizeName) float32 {
-	if n == theme.SizeNameText {
-		return 16
-	}
-	return theme.DefaultTheme().Size(n)
-}
+const VERSION_APP string = "3.0.2"
 
 func convertBytes(value float64) string {
 	var base float64
@@ -64,19 +30,19 @@ func convertBytes(value float64) string {
 
 	if value < 1024 {
 		base = value
-		tipo = " bytes"
+		tipo = "bytes"
 	} else if value < 1048576 {
 		base = value / 1024
-		tipo = " KB"
+		tipo = "KB"
 	} else if value < 1073741824 {
 		base = value / 1024 / 1024
-		tipo = " MB"
+		tipo = "MB"
 	} else if value < 1099511627776 {
 		base = value / 1024 / 1024 / 1024
-		tipo = " GB"
+		tipo = "GB"
 	} else if value < 1125899906842624 {
 		base = value / 1024 / 1024 / 1024 / 1024
-		tipo = " TB"
+		tipo = "TB"
 	}
 
 	return fmt.Sprintf("%.2f %s", base, tipo)
@@ -113,13 +79,34 @@ func getDrivers() []string {
 }
 
 func main() {
+	sIcon := fyne.NewStaticResource("miremovependrive.png", resourceAppIconPngData)
+
 	app := app.NewWithID("br.com.mugomes.miremovependrive")
 	app.Settings().SetTheme(&myDarkTheme{})
-
+	app.SetIcon(sIcon)
+	
 	window := app.NewWindow("MiRemovePendrive")
 	window.CenterOnScreen()
 	window.SetFixedSize(true)
-	window.Resize(fyne.NewSize(530, 250))
+	window.Resize(fyne.NewSize(530, 275))
+
+	mnuAbout := fyne.NewMenu("Sobre",
+		fyne.NewMenuItem("Verificar Atualização", func() {
+			url, _ := url.Parse("https://github.com/mugomes/miremovependrive/releases")
+			app.OpenURL(url)
+		}),
+		fyne.NewMenuItemSeparator(),
+		fyne.NewMenuItem("Apoie MiRemovePendrive", func() {
+			url, _ := url.Parse("https://mugomes.github.io/apoie.html")
+			app.OpenURL(url)
+		}),
+		fyne.NewMenuItemSeparator(),
+		fyne.NewMenuItem("Sobre MiRemovePendrive", func() {
+			showAbout(app)
+		}),
+	)
+
+	window.SetMainMenu(fyne.NewMainMenu(mnuAbout))
 
 	flow := mgsmartflow.New()
 
@@ -136,52 +123,98 @@ func main() {
 	}
 
 	flow.AddRow(cboDisp)
-	flow.SetGap(cboDisp, fyne.NewPos(0, 14))
+	flow.Gap(cboDisp, 0, 14)
 
-	lblInfo := widget.NewLabel("Teste")
+	lblInfo := widget.NewLabel("")
 
-	header := []string{"Available", "Used", "Total", "Used %"}
-	wHeader := []float32{150, 150, 150, 100}
+	header := []string{"Disponível", "Usado", "Total"}
+	wHeader := []float32{150, 170, 150}
 	cv := mgcolumnview.NewColumnView(header, wHeader, false)
 
 	userCurrent, _ := user.Current()
-	
-	btnRemover := widget.NewButton("Remover", func() {
+
+	var btnRemover *widget.Button
+	var btnInfo *widget.Button
+
+	checkDisable := func() {
+		if len(cboDisp.Options) > 0 {
+			btnRemover.Enable()
+			btnInfo.Enable()
+		} else {
+			btnRemover.Disable()
+			btnInfo.Disable()
+		}
+	}
+
+	btnRemover = widget.NewButton("Remover", func() {
 		go func() {
 			fyne.Do(func() {
 				flow.AddRow(lblInfo)
 				flow.Container.Remove(cv)
+
+				lblInfo.SetText(fmt.Sprintf("Obtendo dispositivo %s...", cboDisp.Selected))
 			})
 
 			sLSBLK := fmt.Sprintf("lsblk -l | grep \"/media/%s/%s\"", userCurrent.Name, cboDisp.Selected)
+			time.Sleep(1 * time.Second)
 			sDriver := strings.Split(getRun("bash", "-c", sLSBLK), " ")[0]
 			time.Sleep(1 * time.Second)
 
+			fyne.Do(func() {
+				lblInfo.SetText(fmt.Sprintf("Desmontando dispositivo %s...", sDriver))
+			})
+
 			uDisks1 := fmt.Sprintf("udisksctl unmount -b /dev/%s", sDriver)
+			time.Sleep(1 * time.Second)
 			sInfo := getRun("bash", "-c", uDisks1)
 			time.Sleep(1 * time.Second)
 
+			fyne.Do(func() {
+				lblInfo.SetText(fmt.Sprintf("Desligando dispositivo %s...", sDriver))
+			})
+
 			if sInfo != "" {
 				uDisks2 := fmt.Sprintf("udisksctl power-off -b /dev/%s", sDriver)
+				time.Sleep(1 * time.Second)
 				sInfo = getRun("bash", "-c", uDisks2)
 				time.Sleep(1 * time.Second)
+
+				fyne.Do(func() {
+					flow.Container.Remove(lblInfo)
+					flow.Container.Refresh()
+
+					if sInfo == "" {
+						mgdialogbox.NewAlert(app, "MiRemovePendrive", "Dispositivo removido com sucesso!", false, "Ok")
+
+						cboDisp.ClearSelected()
+						cboDisp.Options = getDrivers()
+						cboDisp.Refresh()
+
+						if len(cboDisp.Options) > 0 {
+							cboDisp.Selected = cboDisp.Options[0]
+						} else {
+							checkDisable()
+						}
+					} else {
+						mgdialogbox.NewAlert(app, "MiRemovePendrive", "Dispositivo ocupado, não é possível remover!", true, "Ok")
+					}
+				})
 			} else {
-				//
+				fyne.Do(func() {
+					flow.Container.Remove(lblInfo)
+					mgdialogbox.NewAlert(app, "MiRemovePendrive", "Dispositivo ocupado, não é possível desmontá-lo!", true, "Ok")
+				})
 			}
-			
-			fyne.Do(func()  {
-				flow.Container.Remove(lblInfo)
-			})
 		}()
 	})
 
 	var btnAtualizar *widget.Button
 
-	btnInfo := widget.NewButton("Informação", func() {
+	btnInfo = widget.NewButton("Informação", func() {
 		flow.Container.Remove(cv)
-		flow.SetGap(btnAtualizar, fyne.NewPos(0, 19))
+		flow.Gap(btnAtualizar, 0, 19)
 		flow.AddRow(cv)
-		flow.SetResize(cv, fyne.NewSize(window.Canvas().Size().Width, 84))
+		flow.Resize(cv, window.Canvas().Size().Width, 84)
 
 		userMedia := fmt.Sprintf("df -B1 | grep \"/media/%s/%s\"", userCurrent.Name, cboDisp.Selected)
 
@@ -197,15 +230,24 @@ func main() {
 
 		sAvailable, _ := strconv.ParseFloat(aItens[3], 64)
 		sUsed, _ := strconv.ParseFloat(aItens[2], 64)
+		sTextUsed := fmt.Sprintf("%s %s", convertBytes(sUsed), aItens[4])
 		sTotal, _ := strconv.ParseFloat(aItens[1], 64)
 
 		cv.RemoveAll()
-		cv.AddRow([]string{convertBytes(sAvailable), convertBytes(sUsed), convertBytes(sTotal), aItens[4]})
+		cv.AddRow([]string{convertBytes(sAvailable), sTextUsed, convertBytes(sTotal)})
 	})
 
 	btnAtualizar = widget.NewButton("Atualizar", func() {
 		cboDisp.Options = getDrivers()
+
+		if len(cboDisp.Options) > 0 {
+			cboDisp.Selected = cboDisp.Options[0]
+		}
+
+		checkDisable()
 	})
+
+	checkDisable()
 
 	flow.AddColumn(btnRemover, btnInfo, btnAtualizar)
 
